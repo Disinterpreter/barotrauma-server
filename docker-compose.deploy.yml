@@ -1,0 +1,16 @@
+version: "3"
+services:
+  barotrauma-server:
+    container_name: barotrauma-server
+    ports:
+      - "27015:27015/udp"
+      - "27016:27016/udp"
+    volumes:
+      - "./gamefiles/Data:/server/Data"
+      - "./gamefiles/Daedalic\ Entertainment\ GmbH:/server/Daedalic\ Entertainment\ GmbH"
+      - "./gamefiles/serversettings.xml:/server/serversettings.xml"
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: "disinterpreter/barotrauma-server:latest"
+

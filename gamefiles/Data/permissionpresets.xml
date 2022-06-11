@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PermissionPresets>
+  <Preset 
+    name="None" 
+    description="No special privileges." 
+    permissions="None"/>
+
+  <Preset 
+    name="Moderator" 
+    description="Allowed to manage round settings, kick players and access server logs." 
+    permissions="ManageRound,Kick,SelectSub,SelectMode,ManageCampaign,ConsoleCommands,ServerLog,ManageSettings,ManageMoney">
+    <Command name="clientlist"/>
+    <Command name="readycheck"/>
+    <Command name="autorestart"/>
+    <Command name="autorestartinterval"/>
+    <Command name="autorestarttimer"/>
+    <Command name="botcount"/>
+    <Command name="botspawnmode"/>
+    <Command name="gamemode"/>
+    <Command name="sub"/>
+    <Command name="shuttle"/>
+    <Command name="water"/>
+    <Command name="fire"/>
+    <Command name="difficulty"/>
+    <Command name="kick"/>
+    <Command name="kickid"/>
+    <Command name="campaigninfo"/>
+    <Command name="campaigndestination"/>
+    <Command name="togglekarma"/>
+    <Command name="setkarma"/>
+    <Command name="resetkarma"/>
+    <Command name="showkarma"/>
+    <Command name="togglekarmatestmode"/>
+    <Command name="respawnnow"/>
+    <Command name="traitorlist"/>
+  </Preset>
+
+  <Preset 
+    name="Admin" 
+    description="Allowed to ban and kick players, manage round settings, access server logs and use nearly all console commands." 
+    permissions="All">
+    <Command name="clientlist"/>
+    <Command name="readycheck"/>
+    <Command name="autorestart"/>
+    <Command name="autorestartinterval"/>
+    <Command name="autorestarttimer"/>
+    <Command name="botcount"/>
+    <Command name="botspawnmode"/>    
+    <Command name="difficulty"/>
+    <Command name="kick"/>
+    <Command name="kickid"/>
+    <Command name="campaigninfo"/>
+    <Command name="campaigndestination"/>
+    <Command name="servermsg"/>
+    <Command name="showperm"/>
+    <Command name="spawn"/>
+    <Command name="spawnitem"/>
+    <Command name="disablecrewai"/>
+    <Command name="gamemode"/>
+    <Command name="sub"/>
+    <Command name="shuttle"/>
+    <Command name="enablecrewai"/>
+    <Command name="ban"/>
+    <Command name="banid"/>
+    <Command name="banip"/>
+    <Command name="unban"/>
+    <Command name="unbanip"/>
+    <Command name="teleportcharacter"/>
+    <Command name="mute"/>
+    <Command name="unmute"/>
+    <Command name="godmode"/>
+    <Command name="godmode_mainsub"/>
+    <Command name="lock"/>
+    <Command name="lockx"/>
+    <Command name="locky"/>
+    <Command name="water"/>
+    <Command name="fire"/>
+    <Command name="heal"/>
+    <Command name="giveaffliction"/>
+    <Command name="revive"/>
+    <Command name="freeze"/>
+    <Command name="freecam"/>
+    <Command name="explosion"/>
+    <Command name="fixitems"/>
+    <Command name="fixhulls"/>
+    <Command name="power"/>
+    <Command name="oxygen"/>
+    <Command name="setclientcharacter"/>
+    <Command name="togglekarma"/>
+    <Command name="setkarma"/>
+    <Command name="resetkarma"/>
+    <Command name="showkarma"/>
+    <Command name="togglekarmatestmode"/>
+    <Command name="togglecampaignteleport"/>
+    <Command name="respawnnow"/>
+    <Command name="traitorlist"/>
+  </Preset>
+</PermissionPresets>

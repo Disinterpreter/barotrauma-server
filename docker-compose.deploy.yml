@@ -12,5 +12,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    image: "disinterpreter/barotrauma-server:latest"
+    image: "ghcr.io/disinterpreter/barotrauma-server:latest"
 

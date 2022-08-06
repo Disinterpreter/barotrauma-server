@@ -22,6 +22,6 @@ jobs:
         export BARO_VER=$(perl ./baro_ver.pl)
     - name: Build the Barotrauma server Docker image
       run: |
-        docker build -f Dockerfile.prod . -t ghcr.io/disinterpreter/barotrauma-server:latest -t ghcr.io/disinterpreter/barotrauma-server:$BARO_VER
+        docker build -f Dockerfile.prod -t ghcr.io/disinterpreter/barotrauma-server:latest -t ghcr.io/disinterpreter/barotrauma-server:$BARO_VER .
         docker push ghcr.io/disinterpreter/barotrauma-server:$BARO_VER
         docker push ghcr.io/disinterpreter/barotrauma-server:latest

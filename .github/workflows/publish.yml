@@ -15,7 +15,7 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: setup locallib
       run: |
         tempdir=$(mktemp -d)
@@ -35,7 +35,7 @@ jobs:
     - name: Build the Barotrauma server Docker image
       run: |
         sudo apt update && sudo apt install -y gcc make && sudo apt clean -y
-        cpan -f -i XML::RSS::Parser::Lite
+        cpan -f -i XML::RSS::Parser::Lite LWP::Simple
         export BARO_VER=$(perl ./barover.pl)
         docker build -f Dockerfile.prod -t ghcr.io/disinterpreter/barotrauma-server:latest -t ghcr.io/disinterpreter/barotrauma-server:$BARO_VER .
         docker push ghcr.io/disinterpreter/barotrauma-server:$BARO_VER

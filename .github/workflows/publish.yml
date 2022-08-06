@@ -33,7 +33,6 @@ jobs:
     #     echo "PERL_MM_OPT=INSTALL_BASE=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
             # sudo apt update && sudo apt install -y gcc make && sudo apt clean -y
         # cpan -f -i XML::RSS::Parser::Lite LWP::Simple
-        echo "PATH=$PERL_LOCAL_LIB_ROOT/bin:$PATH" >> $GITHUB_ENV
     - name: Build the Barotrauma server Docker image
       run: |  libxml-rsslite-perl
 

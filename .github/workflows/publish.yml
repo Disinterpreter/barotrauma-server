@@ -19,9 +19,9 @@ jobs:
     - name: Build the Barotrauma server Docker image
       run: |
         apt update && apt install -y libxml-parser-lite-perl && apt clean -y
-        export BARO_VER=$(perl ./baro_ver.pl)
     - name: Build the Barotrauma server Docker image
       run: |
+        export BARO_VER=$(perl ./baro_ver.pl)
         docker build -f Dockerfile.prod -t ghcr.io/disinterpreter/barotrauma-server:latest -t ghcr.io/disinterpreter/barotrauma-server:$BARO_VER .
         docker push ghcr.io/disinterpreter/barotrauma-server:$BARO_VER
         docker push ghcr.io/disinterpreter/barotrauma-server:latest

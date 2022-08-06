@@ -16,26 +16,25 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: setup locallib
-    #   run: |
-    #     tempdir=$(mktemp -d)
-    #     cd $tempdir
-    #     wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
-    #     tar zxvf local-lib-2.000024.tar.gz
-    #     cd local-lib-2.000024
-    #     PERL_LOCAL_LIB_ROOT=$GITHUB_WORKSPACE/perl5
-    #     perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
-    #     make
-    #     make test
-    #     echo "PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
-    #     echo "PERL5LIB=$PERL_LOCAL_LIB_ROOT/lib/perl5" >> $GITHUB_ENV
-    #     echo "PERL_MB_OPT=--install_base \"$PERL_LOCAL_LIB_ROOT/\"" >> $GITHUB_ENV
-    #     echo "PERL_MM_OPT=INSTALL_BASE=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
-            # sudo apt update && sudo apt install -y gcc make && sudo apt clean -y
-        # cpan -f -i XML::RSS::Parser::Lite LWP::Simple
+    - name: setup locallib
+      run: |
+        tempdir=$(mktemp -d)
+        cd $tempdir
+        wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
+        tar zxvf local-lib-2.000024.tar.gz
+        cd local-lib-2.000024
+        PERL_LOCAL_LIB_ROOT=$GITHUB_WORKSPACE/perl5
+        perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
+        make
+        make test
+        echo "PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
+        echo "PERL5LIB=$PERL_LOCAL_LIB_ROOT/lib/perl5" >> $GITHUB_ENV
+        echo "PERL_MB_OPT=--install_base \"$PERL_LOCAL_LIB_ROOT/\"" >> $GITHUB_ENV
+        echo "PERL_MM_OPT=INSTALL_BASE=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
     - name: Build the Barotrauma server Docker image
       run: | 
-        sudo apt update && sudo apt install -y libxml-rsslite-perl libio-all-lwp-perl && sudo apt clean -y
+        sudo apt update && sudo apt install -y gcc make libxml-rsslite-perl libio-all-lwp-perl && sudo apt clean -y
+        cpan -f -i XML::RSS::Parser::Lite
         export BARO_VER=$(perl ./barover.pl)
         echo $BAR_VER
         docker build -f Dockerfile.prod -t ghcr.io/disinterpreter/barotrauma-server:latest -t ghcr.io/disinterpreter/barotrauma-server:$BARO_VER .

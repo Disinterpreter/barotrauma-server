@@ -18,7 +18,7 @@ jobs:
 
     - name: Build the Barotrauma server Docker image
       run: |
-        apt update && apt install -y libxml-parser-lite-perl && apt clean -y
+        sudo apt update && sudo apt install -y libxml-parser-lite-perl && sudo apt clean -y
     - name: Build the Barotrauma server Docker image
       run: |
         export BARO_VER=$(perl ./baro_ver.pl)

@@ -1,15 +1,17 @@
 name: publish
 
-on: [push]
-
-workflow_dispatch:
-  inputs:
-    logLevel:
-      description: 'Log level'     
-      required: true
-      default: 'warning'
-    tags:
-      description: 'Baro'  
+on:
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Baro'  
 jobs:
   publish-barotrauma-server-image:
     runs-on: ubuntu-latest

@@ -9,7 +9,11 @@ my $xml = get("https://store.steampowered.com/feeds/news/app/602960/?cc=US&l=eng
 my $rp = new XML::RSS::Parser::Lite;
 $rp->parse($xml);
 
-my $description = $rp->get(0)->get('description');
-if ($description =~ m/i&gt;(v.+)&lt;\/i&gt;/g) {
-    print ($1);
+for(0..10) {
+    my $description = $rp->get($_)->get('description');
+    if ($description =~ m/i&gt;(v.+)&lt;\/i&gt;/g) {
+        print ($1."\n");
+        last;
+    }
+
 }
